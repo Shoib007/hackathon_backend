@@ -4,6 +4,7 @@ from .models.UserModel import UserModel
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ['email', 'first_name', 'last_name']
+    
 
 admin.site.register(UserModel, UserAdmin)
 
