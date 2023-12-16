@@ -13,7 +13,6 @@ class ContestModel(BaseModel):
     endTime = models.DateTimeField()
     active = models.BooleanField(default=True)
     
-    
     def __str__(self) -> str:
         return str(self.title)
     

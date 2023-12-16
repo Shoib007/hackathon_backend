@@ -7,7 +7,7 @@ class responseSerializer(serializers.ModelSerializer):
     # question = QuestionSerializer()
     class Meta:
         model = responseModel
-        fields = ['question_id', 'code']
+        fields = ['question_id', 'code', 'submitted']
 
 
 class ContestSubmissionSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class ContestSubmissionSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Submissions
-        fields = ['contest', 'user', 'response']
+        fields = ['contest', 'user', 'response', 'submitted']
         
 
     def create(self, validated_data):
@@ -30,5 +30,3 @@ class ContestSubmissionSerializer(serializers.ModelSerializer):
             response = responseModel.objects.create(question_id = question, code = code_data)
             submission.response.add(response)
         return submission
-            
-            
