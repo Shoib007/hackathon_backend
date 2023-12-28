@@ -21,12 +21,11 @@ class ContestSubmissionSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         response_data = validated_data.pop('response')
         submission = Submissions.objects.create(**validated_data)
-        print("In Serializer ", response_data)
         
         for response_data in response_data:
             question_id = response_data.pop('question_id').id  # The response is the object of question, that's why I'm using ( .id ) after pop 
             code_data = response_data.get('code')
             question = QuestionModel.objects.get(id = question_id)
-            response = responseModel.objects.create(question_id = question, code = code_data)
+            response = responseModel.objects.create(question_id = question, code = code_data, submitted = True)
             submission.response.add(response)
-        return submission
+        return submission   

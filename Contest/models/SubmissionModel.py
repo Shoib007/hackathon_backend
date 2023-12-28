@@ -2,7 +2,6 @@ from django.db import models
 from ..models.contestModel import ContestModel
 from Account.models.UserModel import UserModel
 from .QuestionModel import QuestionModel
-
 from .BaseModel import BaseModel
 
 class responseModel(BaseModel):

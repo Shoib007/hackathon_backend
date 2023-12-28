@@ -3,9 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from ..models.UserModel import UserModel
 from ..Serializers.userSerializer import UserSerializer
-from django.http import JsonResponse
 
 
 @api_view(["GET"])
